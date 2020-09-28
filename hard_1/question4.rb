@@ -32,9 +32,15 @@ def dot_separated_ip_address?(input_string)
 end
 
 def is_an_ip_number?(number)
+  return false unless is_valid_number?(number)
   (0..255).include?(number.to_i)
+end
+
+def is_valid_number?(number)
+  number.to_i.to_s == number
 end
 
 puts "#{dot_separated_ip_address?('1.1.1.1')}"
 puts "#{dot_separated_ip_address?('3.2.125.3546.3.2')}"
+puts "#{dot_separated_ip_address?('blue.green.white.yellow')}"
 
